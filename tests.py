@@ -40,10 +40,22 @@ class TestBooksCollector:
 @pytest.mark.parametrize('name', [
     "Книга с именем, которое слишком длинное для добавления в систему",
     "",
-    "A"
+    "А"
 ])
 def test_add_new_book_invalid_length(name):
     collector = BooksCollector()
     collector.add_new_book(name)
     assert name not in collector.books_genre
     
+def test_set_book_genre_success():
+    collector = BooksCollector()
+    collector.books_genre["Поле битвы земля"] = ""
+    collector.set_book_genre("Поле битвы земля", "Фантастика")
+    assert collector.books_genre["Поле битвы земля"] == "Фантастика"
+
+def test_set_book_genre_invalid_genre():
+    collector = BooksCollector()
+    collector.books_genre["Аватар"] = ""
+    collector.set_book_genre("Аватар", "Фэнтези")
+    assert collector.books_genre["Аватар"] == ""    
+
