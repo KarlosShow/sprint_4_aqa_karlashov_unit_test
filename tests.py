@@ -96,4 +96,14 @@ def test_delete_book_from_favorites_success():
     collector.favorites.append(book_name)
     collector.delete_book_from_favorites(book_name)
     assert book_name not in collector.favorites
+
+def test_get_list_of_favorites_books():
+    collector = BooksCollector()
+
+    collector.favorites.append("Водный мир")
+    collector.favorites.append("Мошенники")
+    favorites_list = collector.get_list_of_favorites_books()
+    assert "Водный мир" in favorites_list
+    assert "Мошенники" in favorites_list
+
     
