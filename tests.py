@@ -83,4 +83,11 @@ def test_get_books_for_children_empty():
     books_for_children = collector.get_books_for_children()
     assert books_for_children == []
 
+def test_add_book_in_favorites():
+    collector = BooksCollector()
+    book_name = "Ужасающий"
+    collector.books_genre[book_name] = "Ужасы"
+    collector.add_book_in_favorites(book_name)
+    assert book_name in collector.favorites
+
     
