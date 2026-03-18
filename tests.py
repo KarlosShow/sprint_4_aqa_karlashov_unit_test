@@ -1,3 +1,4 @@
+import pytest
 from main import BooksCollector
 
 # класс TestBooksCollector объединяет набор тестов, которыми мы покрываем наше приложение BooksCollector
@@ -36,9 +37,13 @@ class TestBooksCollector:
         collector.add_new_book('Хоббит')
         assert len(collector.books_genre) == 1    
 
-    def test_add_new_book_invalid_length(self):
-        collector = BooksCollector()
-
-        collector.add_new_book("")
-        assert "" not in collector.books_genre
+@pytest.mark.parametrize('name', [
+    "Книга с именем, которое слишком длинное для добавления в систему",
+    "",
+    "A"
+])
+def test_add_new_book_invalid_length(name):
+    collector = BooksCollector()
+    collector.add_new_book(name)
+    assert name not in collector.books_genre
     
