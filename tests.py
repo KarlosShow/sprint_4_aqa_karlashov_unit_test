@@ -22,3 +22,10 @@ class TestBooksCollector:
 
     # напиши свои тесты ниже
     # чтобы тесты были независимыми в каждом из них создавай отдельный экземпляр класса BooksCollector()
+
+    def test_add_new_book_added_in_book_genre(self):
+        collector = BooksCollector()
+
+        collector.add_new_book('Смешарики')
+        assert 'Смешарики' in collector.book_genre
+        
