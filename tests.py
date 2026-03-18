@@ -35,3 +35,10 @@ class TestBooksCollector:
         collector.add_new_book('Хоббит')
         collector.add_new_book('Хоббит')
         assert len(collector.books_genre) == 1    
+
+    def test_add_new_book_invalid_length(self):
+        collector = BooksCollector()
+
+        collector.add_new_book("")
+        assert "" not in collector.books_genre
+    
