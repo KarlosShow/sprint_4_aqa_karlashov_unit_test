@@ -59,3 +59,7 @@ def test_set_book_genre_invalid_genre():
     collector.set_book_genre("Аватар", "Фэнтези")
     assert collector.books_genre["Аватар"] == ""    
 
+def test_get_book_genre():
+    collector = BooksCollector()
+    collector.books_genre["Какая то фантастика"] = "Фантастика"
+    assert collector.get_book_genre("Какая то фантастика") == "Фантастика"
