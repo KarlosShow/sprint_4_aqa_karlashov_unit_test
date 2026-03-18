@@ -28,4 +28,10 @@ class TestBooksCollector:
 
         collector.add_new_book('Смешарики')
         assert 'Смешарики' in collector.book_genre
+
+    def test_add_new_book_existing_name(self):
+        collector = BooksCollector()
         
+        collector.add_new_book('Хоббит')
+        collector.add_new_book('Хоббит')
+        assert len(collector.books_genre) == 1    
