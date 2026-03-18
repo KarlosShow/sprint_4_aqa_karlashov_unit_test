@@ -63,3 +63,24 @@ def test_get_book_genre():
     collector = BooksCollector()
     collector.books_genre["Какая то фантастика"] = "Фантастика"
     assert collector.get_book_genre("Какая то фантастика") == "Фантастика"
+
+def test_get_books_for_children_success():
+    collector = BooksCollector()
+    collector.books_genre = {
+        "Лунтик": "Фантастика",
+        "Лепрекон": "Ужасы",
+        "Один дома": "Комедии",
+    }
+
+    books_for_children = collector.get_books_for_children()
+    assert "Лунтик" in books_for_children
+    assert "Один дома" in books_for_children
+    assert "Лепрекон" not in books_for_children
+
+def test_get_books_for_children_empty():
+    collector = BooksCollector()
+    collector.books_genre = {}
+    books_for_children = collector.get_books_for_children()
+    assert books_for_children == []
+
+    
