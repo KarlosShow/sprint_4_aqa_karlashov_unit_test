@@ -90,4 +90,10 @@ def test_add_book_in_favorites():
     collector.add_book_in_favorites(book_name)
     assert book_name in collector.favorites
 
+def test_delete_book_from_favorites_success():
+    collector = BooksCollector()
+    book_name = "будем удалять"
+    collector.favorites.append(book_name)
+    collector.delete_book_from_favorites(book_name)
+    assert book_name not in collector.favorites
     
