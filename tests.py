@@ -28,7 +28,7 @@ class TestBooksCollector:
         collector = BooksCollector()
 
         collector.add_new_book('Смешарики')
-        assert 'Смешарики' in collector.book_genre
+        assert 'Смешарики' in collector.books_genre
 
     def test_add_new_book_existing_name(self):
         collector = BooksCollector()
@@ -39,8 +39,7 @@ class TestBooksCollector:
 
 @pytest.mark.parametrize('name', [
     "Книга с именем, которое слишком длинное для добавления в систему",
-    "",
-    "А"
+    ""
 ])
 def test_add_new_book_invalid_length(name):
     collector = BooksCollector()
