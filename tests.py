@@ -112,3 +112,17 @@ def test_get_list_of_favorites_returns_list_of_favorite_books():
     assert "Водный мир" in favorites_list
     assert "Мошенники" in favorites_list
 
+# проверка при вызове словаря словарь вызывается с дабавленной книгой и корректным жанром
+def test_get_books_genre_returns_correct_dictionary(self):
+    collector = BooksCollector()
+    collector.add_new_book('Аватар')
+    collector.set_book_genre('Аватар', 'Фантастика')
+    expected_dict = {'Аватар': 'Фантастика'}
+    assert collector.get_books_genre() == expected_dict
+
+# проверка при вывозе книги по имени выводится ее жанр
+def test_get_book_genre_correct_genre(self):
+    collector = BooksCollector()
+    collector.books_genre['Дом у дороги'] = 'Ужасы'
+    assert collector.get_book_genre('Дом у дороги') == 'Ужасы'
+    
