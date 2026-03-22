@@ -18,12 +18,12 @@ class TestBooksCollector:
 
     # напиши свои тесты ниже
     # чтобы тесты были независимыми в каждом из них создавай отдельный экземпляр класса BooksCollector()
-# проверка добавления новой книги: название книги добавлено в жанры книг.
+    # проверка добавления новой книги: название книги добавлено в жанры книг.
     def test_add_new_book_book_title_added_to_books_genre(self, collector):
         collector.add_new_book('Смешарики')
         assert 'Смешарики' in collector.books_genre
 
-# проверка добавления новой книги: дубликат названия не добавляется
+    # проверка добавления новой книги: дубликат названия не добавляется
     def test_add_new_book_duplicate_title_not_added(self, collector):
         collector.add_new_book('Хоббит')
         collector.add_new_book('Хоббит')
@@ -112,4 +112,3 @@ class TestBooksCollector:
     def test_get_book_genre_correct_genre(self, collector):
         collector.books_genre['Дом у дороги'] = 'Ужасы'
         assert collector.get_book_genre('Дом у дороги') == 'Ужасы'
-    
