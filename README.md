@@ -28,6 +28,10 @@ sprint_4_aqa_karlashov_unit_test
     test_delete_book_from_favorites_deleted_successfully
 # проверка получения списка избранных книг: возвращается список любимых книг.
     test_get_list_of_favorites_returns_list_of_favorite_books
+# проверка при вызове словаря словарь вызывается с дабавленной книгой и добавленным жанром
+    test_get_books_genre_returns_correct_dictionary
+# проверка при вывозе книги по имени выводится ее жанр
+    test_get_book_genre_correct_genre
 
 Результат запуска тестов:
                     pytest -v tests.py
