@@ -96,7 +96,7 @@ class TestBooksCollector:
     # проверка получения списка избранных книг: возвращается список любимых книг.
     def test_get_list_of_favorites_returns_list_of_favorite_books(self, collector):
         collector.favorites.append("Водный мир")
-        ollector.favorites.append("Мошенники")
+        collector.favorites.append("Мошенники")
         favorites_list = collector.get_list_of_favorites_books()
         assert "Водный мир" in favorites_list
         assert "Мошенники" in favorites_list
